@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <title>Curl W Chad</title>
+  </head>
+  <body>
+    <div class="container-fluid bg-dark" style="height: 100vh">
+      <div class="p-5 text-center">
+        <h1>Welcome to CURL With Chad!</h1>
+      </div>
+      <div class="container d-grid mt-5 gap-2"></div>
+    </div>
+  </body>
+  <script>
+    let currentL = 0;
+    const getMessages = async () => {
+      const res = await fetch("/messages");
+      const msgs = await res.json();
+      msgs.length && render(msgs);
+    };
+    setInterval(getMessages, 1000);
+
+    const render = (msgs) => {
+      if (currentL !== msgs.length) {
+        currentL = msgs.length;
+        const html = msgs
+          .slice(-10)
+          .map(
+            ({ name, msg }) => `
+                <button class="btn btn-lg btn-primary" type="button">
+                    ${name} said --- ${msg}
+                    </button>
+                    `
+          )
+          .join("\n");
+
+        document.querySelector(".d-grid").innerHTML = html;
+      }
+    };
+  </script>
+</html>

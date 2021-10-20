@@ -1,0 +1,25 @@
+{
+  "name": "curl_w_chad",
+  "version": "1.0.0",
+  "description": "simple app to demonstrate curl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chadtao206/curl_w_chad.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chadtao206/curl_w_chad/issues"
+  },
+  "homepage": "https://github.com/Chadtao206/curl_w_chad#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
